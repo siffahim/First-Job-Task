@@ -20,7 +20,7 @@ const Navigation = () => {
                         user.email && <h6 className='me-2 text-success'>{user.displayName}</h6>
                     }
                     {
-                        user.email ? <button className='custom-btn' onClick={logOut}>Logout</button> : <Nav.Link className='custom-btn' as={Link} to="/login">Login</Nav.Link>
+                        user.email ? <button className='custom-btn' onClick={logOut}><i class="fas fa-sign-in-alt"></i> Logout</button> : <Nav.Link className='custom-btn' as={Link} to="/login">Login</Nav.Link>
                     }
                 </Nav>
             </Navbar.Collapse>

@@ -4,5 +4,5 @@ html{
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(145deg, #1e2024, #23272b);
+  background-color: #da2f40 !important;
 }
