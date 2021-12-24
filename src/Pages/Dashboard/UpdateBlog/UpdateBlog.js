@@ -11,7 +11,7 @@ const UpdateBlog = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs/${updateId}`)
+        fetch(`https://whispering-sands-36256.herokuapp.com/blogs/${updateId}`)
             .then(res => res.json())
             .then(data => {
                 setBlog(data)
@@ -52,7 +52,7 @@ const UpdateBlog = () => {
         formData.append('description', blog.description)
 
         console.log('client side', formData)
-        fetch(`http://localhost:5000/blogs/${updateId}`, {
+        fetch(`https://whispering-sands-36256.herokuapp.com/blogs/${updateId}`, {
             method: 'PUT',
             body: formData
         }).then(res => res.json())

@@ -21,7 +21,7 @@ const AddBlog = () => {
         formData.append('description', description)
 
         //send data to server
-        fetch('http://localhost:5000/blogs', {
+        fetch('https://whispering-sands-36256.herokuapp.com/blogs', {
             method: 'POST',
             body: formData
         })

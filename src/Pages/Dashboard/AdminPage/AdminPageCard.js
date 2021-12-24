@@ -16,7 +16,7 @@ const ManageBlogCard = ({ data, setNum }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/blogs/${id}`, {
+                    fetch(`https://whispering-sands-36256.herokuapp.com/blogs/${id}`, {
                         method: 'DELETE'
                     }).then(res => res.json())
                         .then(data => {

@@ -11,7 +11,7 @@ const ManageBlog = () => {
 
     useEffect(() => {
         const run = async () => {
-            const res = await fetch('http://localhost:5000/blogs')
+            const res = await fetch('https://whispering-sands-36256.herokuapp.com/blogs')
             const data = await res.json()
 
             setDatas(data)
