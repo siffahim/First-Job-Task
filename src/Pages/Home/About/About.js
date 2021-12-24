@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import img from '../../../images/orange-fahim.png';
+import img from '../../../images/edit.png';
 
 const About = () => {
     return (
@@ -8,7 +8,7 @@ const About = () => {
             <Row className='px-1 d-flex align-items-center'>
                 <Col sm={12} md={5}>
                     <div className='about-img'>
-                        <img src={img} width='50%' alt="" />
+                        <img src={img} width='70%' alt="" />
                     </div>
                 </Col>
                 <Col sm={12} md={7}>

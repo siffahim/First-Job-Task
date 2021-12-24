@@ -4,9 +4,7 @@ import './App.scss';
 import Blogs from './Pages/Blogs/Blogs';
 import Contact from './Pages/Contact/Contact';
 import AddBlog from './Pages/Dashboard/AddBlog/AddBlog';
-import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
-import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
-import ManageBlog from './Pages/Dashboard/ManageBlog/ManageBlog';
+import AdminPage from './Pages/Dashboard/AdminPage/AdminPage';
 import UpdateBlog from './Pages/Dashboard/UpdateBlog/UpdateBlog';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
@@ -23,19 +21,9 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-
-        <Route path='/dashboard'
-          element={
-            <Dashboard />
-          }
-        >
-          <Route path='/dashboard' element={<MakeAdmin />} />
-          <Route path='/dashboard/makeAdmin' element={<MakeAdmin />} />
-          <Route path='/dashboard/addBlog' element={<AddBlog />} />
-          <Route path='/dashboard/manageBlog' element={<ManageBlog />} />
-          <Route path='/dashboard/updateBlog/:updateBlogId' element={<UpdateBlog />} />
-        </Route>
-
+        <Route path='/adminpage' element={<AdminPage />} />
+        <Route path='/addBlog' element={<AddBlog />} />
+        <Route path='/updateBlog/:updateId' element={<UpdateBlog />} />
       </Routes>
     </Router>
   );

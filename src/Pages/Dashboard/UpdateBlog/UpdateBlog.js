@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import swal from 'sweetalert';
+import Footer from '../../Shared/Footer/Footer';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 const UpdateBlog = () => {
     const [blog, setBlog] = useState({});
-    const { updateBlogId } = useParams();
+    const { updateId } = useParams();
     const [image, setImage] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs/${updateBlogId}`)
+        fetch(`http://localhost:5000/blogs/${updateId}`)
             .then(res => res.json())
             .then(data => {
                 setBlog(data)
             })
-    }, [updateBlogId])
+    }, [updateId])
 
     //update
     const handleChangeTitle = e => {
@@ -47,31 +51,46 @@ const UpdateBlog = () => {
         formData.append('country', blog.country)
         formData.append('description', blog.description)
 
-        fetch(`http://localhost:5000/blogs/${updateBlogId}`, {
+        console.log('client side', formData)
+        fetch(`http://localhost:5000/blogs/${updateId}`, {
             method: 'PUT',
             body: formData
-        })
-            .then(res => res.json())
+        }).then(res => res.json())
             .then(data => {
-                console.log(data)
+                if (data.matchedCount) {
+                    swal({
+                        title: "Hey!",
+                        text: "Updated Successfully",
+                        icon: "success",
+                        button: "Ok",
+                    })
+                }
             })
     }
 
+    const handleBlog = () => {
+        navigate('/adminpage')
+    }
+
     return (
-        <div>
-            <h2>Update: {`${blog.title},  ${blog.country}`}</h2>
-            <form onSubmit={handleUpdate}>
-                <input type="text" onChange={handleChangeTitle} className='col-12 col-md-6 mb-3 d-block' value={blog.title || ''} />
+        <>
+            <Navigation />
+            <div className='form-container'>
+                <button className='btn-custom' onClick={handleBlog}><i class="fas fa-undo"></i> Blog</button>
+                <form onSubmit={handleUpdate}>
+                    <input type="text" onChange={handleChangeTitle} className='col-12 col-md-6 mb-3 d-block mx-auto' value={blog.title || ''} />
 
-                <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block' required />
+                    <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block  mx-auto' required />
 
-                <input type="text" onChange={handleChangeCountry} className='col-12 col-md-6 mb-3 d-block' value={blog.country || ''} />
+                    <input type="text" onChange={handleChangeCountry} className='col-12 col-md-6 mb-3 d-block  mx-auto' value={blog.country || ''} />
 
-                <textarea onChange={handleChangeDescripttion} className='border col-12 col-md-6' value={blog.description || ''} cols="100" rows="8"></textarea>
+                    <textarea onChange={handleChangeDescripttion} className='border col-12 col-md-6 d-flex mx-auto' value={blog.description || ''} cols="100" rows="8"></textarea>
 
-                <input type="submit" className='col-12 col-md-6 mb-3 d-block' value='Update Blog' />
-            </form>
-        </div>
+                    <button type="submit" className='col-12 col-md-6 mb-3 d-block mx-auto btn-custom' >Update Blog</button>
+                </form>
+            </div>
+            <Footer />
+        </>
     );
 };
 

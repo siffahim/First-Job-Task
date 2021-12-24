@@ -12,8 +12,7 @@ $text-center:center;
 
 .header{
     height: 70px;
-    background-color:$bg-color2;
-    backdrop-filter: blur(20px);
+    background-color:#da2f40;
 }
 .custom-btn{
     text-decoration: none;
@@ -69,7 +68,7 @@ $text-center:center;
 .about_bg{
     background: rgb(41, 40, 40);
     color:white;
-    padding:100px 0;
+    padding:40px 0;
 }
 .about-img{
     text-align: center;
@@ -147,17 +146,15 @@ $text-center:center;
     margin-top:25px;
     text-align: left;
 }
+.btn-custom{
+    border: none;
+    padding:8px 10px;
+    background: #da2f40;
+    color: #fff;
+    border-radius: 3px;
+}
 .icon{
     color: #f9004d;
-}
-
-@keyframes jump {
-    0%,100%{
-        transform: translateY(5px);
-    }
-    50%{
-        transform: translateY(10px)
-    }
 }
 .form-btn{
     text-decoration: none;
@@ -184,9 +181,11 @@ $text-center:center;
 }
 
 .form-container{
-    background:#fff;
-    color: #f6f6f6;
     padding:40px 60px;
+}
+.txt{
+    font-size: 7px;
+    color: #da2f40;
 }
 .contact-card{
     border-radius: 6px;
@@ -194,22 +193,18 @@ $text-center:center;
     padding:20px 10px;
     margin-bottom: 18px;
     background:linear-gradient(145deg, #1e2024, #23272b);
+    color: rgb(206, 202, 202);
     position: relative;
     transition: 0.4s;
 }
 
 .form-container textarea,input {
-    background:transparent !important;
     outline: none !important;
     margin: 5px;
-    background-color: #191b1e;
     border-radius: 6px;
-    transition:all 0.4s;
-    border: none !important;
     padding: 10px 15px;
     font-size: 14px;
-    color:#fff !important;
-    box-shadow:1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;;
+    border: 1px solid black !important;
     resize: none;
 }
 

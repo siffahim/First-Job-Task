@@ -39,14 +39,14 @@ const ManageBlogCard = ({ data, setNum }) => {
 
     //update
     const handleUpdate = id => {
-        navigate(`/dashboard/updateBlog/${id}`)
+        navigate(`/updateBlog/${id}`)
     }
     return (
         <tr className='align-items-center'>
-            <td><img width='80px' height='70px' src={`data:image/png;base64,${img}`} alt="" /></td>
+            <td><img width='40px' height='40px' style={{ borderRadius: '50%' }} src={`data:image/png;base64,${img}`} alt="" /></td>
             <td>{country}</td>
             <td>{title}</td>
-            <td><button onClick={() => handleUpdate(_id)}>Edit</button><button onClick={() => handleDelete(_id)}>Delete</button></td>
+            <td><button className='btn bg-success text-white' onClick={() => handleUpdate(_id)}><i class="far fa-edit"></i></button><button className='btn bg-danger ms-1 text-white' onClick={() => handleDelete(_id)}><i class="fas fa-trash-alt"></i></button></td>
         </tr>
     );
 };
