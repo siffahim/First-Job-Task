@@ -1,20 +1,24 @@
-$bg-color:linear-gradient(145deg, #1e2024, #23272b);
-$bg-color2:rgba(255,255,255,0.1);
+$bg-color1:#e21657;
+$bg-color2:#da2f40;
+$bg-color3:linear-gradient(145deg, #1e2024, #23272b);
 $shadow:0px 0px 5px #1c1e22, -0px -0px 5px #262a2e;
-$color-white:#f6f6f6;
+$color-white:#fff;
+$color-black:black;
 $bg-hover:#e0dbd244;
+$shadowColor:rgb(0,0,0,0.3);
 $uppercase:uppercase;
 $transition:0.4s;
 $relative:relative;
 $absolute:absolute;
 $bold:bold;
 $text-center:center;
+$decorationNone: none;
 
 .header{
-    background-color:#da2f40;
+    background-color:$bg-color2;
 }
 .custom-btn{
-    text-decoration: none;
+    text-decoration: $decorationNone;
     border-radius: 6px;
     padding: 12px 15px !important;
     display: inline-block;
@@ -67,7 +71,7 @@ $text-center:center;
 
 .about_bg{
     background: rgb(41, 40, 40);
-    color:white;
+    color:$color-white;
     padding:40px 0;
 }
 .about-img{
@@ -81,14 +85,13 @@ $text-center:center;
 .service-container{
     width: 100%;
     padding-bottom: 5%;
-    background: #fff;
-    color: #f6f6f6;
+    color:$color-white;
 }
 
 .card-filp{
     width: 100%;
     height: 250px;
-    color:black;
+    color:$color-black;
     position: relative;
 }
 .front,.back{
@@ -99,17 +102,17 @@ $text-center:center;
     transition: 0.4s;
     border-radius: 6px;
     padding: 40px;
-    color: black;
+    color: $color-black;
     text-align: $text-center;
-    box-shadow: 0 0 10px rgb(0,0,0,0.3);
+    box-shadow: 0 0 10px $shadowColor;
 }
 .front{
-    background:#fff;
+    background:$color-white;
     transform: rotateY(0deg);
 }
 .back{
-    background: #e21657;
-    color: #fff;
+    background: $bg-color1;
+    color:$color-white;
     transform: rotateY(180deg);
 }
 .card-filp:hover .front{
@@ -125,20 +128,20 @@ $text-center:center;
     padding: 40px;
     height: 250px;
     background:$color-white;
-    color: black;
+    color: $color-black;
     text-align: $text-center;
-    box-shadow: 0 0 5px rgb(0,0,0,0.3);
+    box-shadow: 0 0 5px $shadowColor;
     position: relative;
 }
 .card-wrapper{
     background: rgb(41, 40, 40);
     padding:80px 0;
-    color: #fff;
+    color: $color-white;
 }
 .card-two{
     width: 18%;
     height: 350PX;
-    box-shadow: 0 0 10px rgb(0,0,0,0.4);
+    box-shadow: 0 0 10px $shadowColor;
     margin-left:5%;
     padding: 1%;
     border-radius: 15px;
@@ -148,12 +151,13 @@ $text-center:center;
 .btn-custom{
     border: none;
     padding:8px 10px;
-    background: #da2f40;
-    color: #fff;
+    background:$bg-color2;
+    color: $color-white;
     border-radius: 3px;
 }
+
 .icon{
-    color: #f9004d;
+    color:$bg-color1;
 }
 .form-btn{
     text-decoration: none;
@@ -181,14 +185,14 @@ $text-center:center;
 
 .txt{
     font-size: 7px;
-    color: #da2f40;
+    color:$bg-color2;
 }
 .contact-card{
     border-radius: 6px;
     transition: 0.4s;
     padding:20px 10px;
     margin-bottom: 18px;
-    background:linear-gradient(145deg, #1e2024, #23272b);
+    background:$bg-color3;
     color: rgb(206, 202, 202);
     position: relative;
     transition: 0.4s;
@@ -200,30 +204,26 @@ $text-center:center;
     border-radius: 6px;
     padding: 10px 15px;
     font-size: 14px;
-    border: 1px solid black !important;
+    border: 1px solid $color-black !important;
     resize: none;
 }
 
-.icon{
-    color: #f9004d;
-}
-
 .text::before{
+    content: " ";
     display: inline-block;
     margin: 0 20px 8px 0px;
     height: 3px;
-    content: " ";
     text-shadow: none;
-    background-color:#f9004d;
+    background-color:$bg-color1;
     width: 80px;
 }
 .text::after{
+    content: " ";
     display: inline-block;
     margin: 0 20px 8px 20px;
     height: 3px;
-    content: " ";
     text-shadow: none;
-    background-color:#f9004d;
+    background-color:$bg-color1;
     width: 80px;
 }
 .form-side{
@@ -232,11 +232,10 @@ $text-center:center;
     background:$bg-color;
 }
 .icon-content{
-
     border: 1px solid #bdb9b9;
     display: flex;
     align-items: center;
     padding: 5px;
     border-radius: 30px;
-    background:#fff;
+    background:$color-white;
 }
