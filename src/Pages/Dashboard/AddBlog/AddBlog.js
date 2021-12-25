@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import Footer from '../../Shared/Footer/Footer';
@@ -45,20 +46,22 @@ const AddBlog = () => {
     return (
         <>
             <Navigation />
-            <div className=' form-container'>
-                <button className='btn-custom' onClick={handleBlog}><i className="fas fa-undo"></i> Blogs</button>
-                <form onSubmit={handleSubmit}>
-                    <input type="text" onBlur={(e) => setTitle(e.target.value)} className='col-12 col-md-6 mb-3 d-block mx-auto' placeholder='Blog Title' required />
+            <Container>
+                <div className=' form-container'>
+                    <button className='btn-custom' onClick={handleBlog}><i className="fas fa-undo"></i> Blogs</button>
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" onBlur={(e) => setTitle(e.target.value)} className='col-12 col-md-6 mb-3 d-block mx-auto' placeholder='Blog Title' required />
 
-                    <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block mx-auto' required />
+                        <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block mx-auto' required />
 
-                    <input type="text" onBlur={(e) => setCountry(e.target.value)} className='col-12 col-md-6 mb-3 d-block mx-auto' placeholder='Country or Purpose' required />
+                        <input type="text" onBlur={(e) => setCountry(e.target.value)} className='col-12 col-md-6 mb-3 d-block mx-auto' placeholder='Country or Purpose' required />
 
-                    <textarea onBlur={(e) => setDescription(e.target.value)} className='border col-12 col-md-6 d-block mx-auto' id="" cols="100" rows="8"></textarea>
+                        <textarea onBlur={(e) => setDescription(e.target.value)} className='border col-12 col-md-6 d-block mx-auto' id="" cols="100" rows="8"></textarea>
 
-                    <button type="submit" className='col-12 col-md-6 mb-3 d-block mx-auto btn-custom' >Create Blog</button>
-                </form>
-            </div>
+                        <button type="submit" className='col-12 col-md-6 mb-3 d-block mx-auto btn-custom' >Create Blog</button>
+                    </form>
+                </div>
+            </Container>
             <Footer />
         </>
     );

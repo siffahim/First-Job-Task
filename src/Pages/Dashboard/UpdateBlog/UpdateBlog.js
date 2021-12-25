@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import Footer from '../../Shared/Footer/Footer';
@@ -75,20 +76,22 @@ const UpdateBlog = () => {
     return (
         <>
             <Navigation />
-            <div className='form-container'>
-                <button className='btn-custom' onClick={handleBlog}><i className="fas fa-undo"></i> Blog</button>
-                <form onSubmit={handleUpdate}>
-                    <input type="text" onChange={handleChangeTitle} className='col-12 col-md-6 mb-3 d-block mx-auto' value={blog.title || ''} />
+            <Container>
+                <div className='form-container'>
+                    <button className='btn-custom' onClick={handleBlog}><i className="fas fa-undo"></i> Blog</button>
+                    <form onSubmit={handleUpdate}>
+                        <input type="text" onChange={handleChangeTitle} className='col-12 col-md-6 mb-3 d-block mx-auto' value={blog.title || ''} />
 
-                    <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block  mx-auto' required />
+                        <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block  mx-auto' required />
 
-                    <input type="text" onChange={handleChangeCountry} className='col-12 col-md-6 mb-3 d-block  mx-auto' value={blog.country || ''} />
+                        <input type="text" onChange={handleChangeCountry} className='col-12 col-md-6 mb-3 d-block  mx-auto' value={blog.country || ''} />
 
-                    <textarea onChange={handleChangeDescripttion} className='border col-12 col-md-6 d-flex mx-auto' value={blog.description || ''} cols="100" rows="8"></textarea>
+                        <textarea onChange={handleChangeDescripttion} className='border col-12 col-md-6 d-flex mx-auto' value={blog.description || ''} cols="100" rows="8"></textarea>
 
-                    <button type="submit" className='col-12 col-md-6 mb-3 d-block mx-auto btn-custom' >Update Blog</button>
-                </form>
-            </div>
+                        <button type="submit" className='col-12 col-md-6 mb-3 d-block mx-auto btn-custom' >Update Blog</button>
+                    </form>
+                </div>
+            </Container>
             <Footer />
         </>
     );
