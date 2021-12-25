@@ -77,8 +77,8 @@ const UpdateBlog = () => {
         <>
             <Navigation />
             <Container>
-                <div className='form-container'>
-                    <button className='btn-custom' onClick={handleBlog}><i className="fas fa-undo"></i> Blog</button>
+                <div className='form-container mb-4'>
+                    <button className='btn-custom mt-3' onClick={handleBlog}><i className="fas fa-undo"></i> Blog</button>
                     <form onSubmit={handleUpdate}>
                         <input type="text" onChange={handleChangeTitle} className='col-12 col-md-6 mb-3 d-block mx-auto' value={blog.title || ''} />
 

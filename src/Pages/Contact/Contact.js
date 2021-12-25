@@ -8,7 +8,7 @@ const Caontact = () => {
         <>
             <Navigation />
             <Container>
-                <div className='form-container'>
+                <div className='form-container mb-4'>
                     <div className='text-center mb-5'>
                         <h3 className="text fw-bold" style={{ color: "black" }}>Contact Me</h3>
                     </div>
