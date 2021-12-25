@@ -33,7 +33,7 @@ const MakeAdmin = () => {
                 <h3 className='text-muted text mb-3'>Make Admin</h3>
                 <form onSubmit={handleAdmim}>
                     <input type="email" onBlur={e => setEmail(e.target.value)} placeholder='Admin Email' required />
-                    <button type='submit' className='btn-custom'>Make Admin</button>
+                    <button type='submit' className='btn-custom bg-danger'>Make Admin</button>
                 </form>
             </div>
         </>

@@ -21,7 +21,7 @@ const Banner = () => {
 
 
                         <div>
-                            <p>FIND WITH ME</p>
+                            <p className='text-dark'>FIND WITH ME</p>
                             <a href="https://www.facebook.com/sif.fahim" target='_blank' className='text-light' rel="noreferrer">
                                 <div className='banner-icon'><i className="fab fa-facebook-f icon"></i></div>
                             </a>

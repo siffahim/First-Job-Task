@@ -27,7 +27,7 @@ const ManageBlog = () => {
         <>
             <Navigation />
             <Container>
-                <button className='btn-custom my-3' onClick={() => handleChange('addBlog')}><i className="fas fa-pencil-alt"></i> Create Blog</button>
+                <button className='btn-custom my-3 bg-danger' onClick={() => handleChange('addBlog')}><i className="fas fa-pencil-alt"></i> Create Blog</button>
                 <button className='btn-custom my-3 ms-2 bg-success' onClick={() => handleChange('makeadmin')}><i className="fas fa-user-shield"></i> Make Admin</button>
                 <Table responsive striped bordered hover>
                     <thead>

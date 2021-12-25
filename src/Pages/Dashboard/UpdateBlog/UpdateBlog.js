@@ -78,7 +78,7 @@ const UpdateBlog = () => {
             <Navigation />
             <Container>
                 <div className='form-container mb-4'>
-                    <button className='btn-custom mt-3' onClick={handleBlog}><i className="fas fa-undo"></i> Blog</button>
+                    <button className='btn-custom mt-3 bg-danger' onClick={handleBlog}><i className="fas fa-undo"></i> Blog</button>
                     <form onSubmit={handleUpdate}>
                         <input type="text" onChange={handleChangeTitle} className='col-12 col-md-6 mb-3 d-block mx-auto' value={blog.title || ''} />
 
@@ -88,7 +88,7 @@ const UpdateBlog = () => {
 
                         <textarea onChange={handleChangeDescripttion} className='border col-12 col-md-6 d-flex mx-auto' value={blog.description || ''} cols="100" rows="8"></textarea>
 
-                        <button type="submit" className='col-12 col-md-6 mb-3 d-block mx-auto btn-custom' >Update Blog</button>
+                        <button type="submit" className='col-12 col-md-6 mb-3 d-block mx-auto btn-custom bg-danger' >Update Blog</button>
                     </form>
                 </div>
             </Container>
