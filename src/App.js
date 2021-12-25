@@ -11,6 +11,7 @@ import UpdateBlog from './Pages/Dashboard/UpdateBlog/UpdateBlog';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -24,10 +25,29 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/adminpage' element={<AdminPage />} />
-          <Route path='/addBlog' element={<AddBlog />} />
-          <Route path='/updateBlog/:updateId' element={<UpdateBlog />} />
-          <Route path='/makeadmin' element={<MakeAdmin />} />
+
+          <Route path='/adminpage' element={
+            <PrivateRoute>
+              <AdminPage />
+            </PrivateRoute>
+          } />
+
+          <Route path='/addBlog' element={
+            <PrivateRoute>
+              <AddBlog />
+            </PrivateRoute>
+          } />
+          <Route path='/updateBlog/:updateId' element={
+            <PrivateRoute>
+              <UpdateBlog />
+            </PrivateRoute>
+          } />
+          <Route path='/makeadmin' element={
+            <PrivateRoute>
+              <MakeAdmin />
+            </PrivateRoute>
+          } />
+
         </Routes>
       </Router>
     </AuthProvider>

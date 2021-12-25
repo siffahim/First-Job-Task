@@ -9,10 +9,12 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const auth = getAuth();
-    const [admin, setAdmin] = useState(false)
+    const [admin, setAdmin] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     //create user of the help registation form
-    const registerUser = (email, password, name) => {
+    const registerUser = (email, password, name, navigate, location) => {
+        setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
                 const newUser = { email, displayName: name };
@@ -38,14 +40,22 @@ const useFirebase = () => {
                     icon: "success",
                     button: "Ok",
                 })
+
+                //rediect send right place
+                const uri = location?.state?.from || '/home';
+                navigate(uri)
             })
             .catch(err => {
                 setError(err.message)
             })
+            .finally(() => {
+                setIsLoading(false)
+            })
     }
 
     //login user
-    const loginUser = (email, password) => {
+    const loginUser = (email, password, navigate, location) => {
+        setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 setUser(result.user)
@@ -56,10 +66,16 @@ const useFirebase = () => {
                     icon: "success",
                     button: "Ok",
                 })
+
+                //rediect send right place
+                const uri = location?.state?.from || '/home';
+                navigate(uri)
             })
             .catch((err) => {
                 setError(err.message)
-            });
+            }).finally(() => {
+                setIsLoading(false)
+            })
     }
     //user log out
     const logOut = () => {
@@ -85,6 +101,7 @@ const useFirebase = () => {
             else {
                 setUser({})
             }
+            setIsLoading(false)
         })
         return () => unsubscribe;
     }, [])
@@ -115,6 +132,7 @@ const useFirebase = () => {
     return {
         user,
         error,
+        isLoading,
         admin,
         logOut,
         loginUser,

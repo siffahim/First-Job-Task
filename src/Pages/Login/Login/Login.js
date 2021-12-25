@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Col, Container, Row } from 'react-bootstrap';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import img from '../../../images/login.svg';
 import Navigation from '../../Shared/Navigation/Navigation';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { loginUser, error } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     //get all values from input field
     const handleOnBlur = e => {
@@ -18,21 +22,30 @@ const Login = () => {
     }
     const handleSubmit = e => {
         e.preventDefault();
-        loginUser(loginData.email, loginData.password)
+        loginUser(loginData.email, loginData.password, navigate, location)
     }
     return (
         <>
             <Navigation />
-            <div className='text-center form-container'>
-                <h3 className='text-muted mb-3'>Login</h3>
-                <form onSubmit={handleSubmit}>
-                    <input className='col-4 d-block mx-auto my-2' name='email' onBlur={handleOnBlur} type="email" placeholder='Email' />
-                    <input className='col-4 d-block mx-auto my-2' name='password' onBlur={handleOnBlur} type="password" placeholder='Password' />
-                    <p className='text-danger'>{error}</p>
-                    <input className='col-4 d-block mx-auto my-2' type="submit" value='Login' />
-                </form>
-                <p>have no account <Link to='/register'>Create new account</Link></p>
-            </div>
+            <Container>
+                <Row className='align-items-center m-auto mt-5'>
+                    <Col sm={6}>
+                        <img width='100%' src={img} alt="" />
+                    </Col>
+                    <Col sm={6}>
+                        <div className='text-center form-container'>
+                            <h3 className='text-muted mb-3'>Login</h3>
+                            <form onSubmit={handleSubmit}>
+                                <input className='col-9 d-block mx-auto my-2' name='email' onBlur={handleOnBlur} type="email" placeholder='Email' />
+                                <input className='col-9 d-block mx-auto my-2' name='password' onBlur={handleOnBlur} type="password" placeholder='Password' />
+                                <p className='text-danger'>{error}</p>
+                                <button className='col-9 d-block mx-auto my-2 btn-custom' type="submit">Login</button>
+                            </form>
+                            <p>have no account <Link to='/register'>Create new account</Link></p>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         </>
     );
 };
