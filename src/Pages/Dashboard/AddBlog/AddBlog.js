@@ -46,7 +46,7 @@ const AddBlog = () => {
         <>
             <Navigation />
             <div className=' form-container'>
-                <button className='btn-custom' onClick={handleBlog}><i class="fas fa-undo"></i> Blogs</button>
+                <button className='btn-custom' onClick={handleBlog}><i className="fas fa-undo"></i> Blogs</button>
                 <form onSubmit={handleSubmit}>
                     <input type="text" onBlur={(e) => setTitle(e.target.value)} className='col-12 col-md-6 mb-3 d-block mx-auto' placeholder='Blog Title' required />
 

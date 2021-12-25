@@ -16,7 +16,7 @@ const About = () => {
                         <h3 className='icon fw-bold'>About Me</h3>
                         <h5>I M</h5>
                         <h5>SAIFUL ISLAM FAHIM</h5>
-                        <p className='txt'>Front End Devepler <span className='icon'>||</span> MERN Stack Developer</p>
+                        <p className='icon'>Front End Devepler <span className='text-light'>||</span> MERN Stack Developer</p>
                         <p>I'm developer focused on crafting user‑friendly experiences, I am passionate about building excellent software that improves the lives of those around me.</p>
                         <a href='#f' className='form-btn mt-2'><i className="fas fa-download icon"></i> Download CV</a>
                     </div>

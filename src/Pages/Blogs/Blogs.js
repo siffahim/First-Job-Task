@@ -39,20 +39,20 @@ const Blogs = () => {
                         <div>
                             <p className='text text-center'>CATEGORIES</p>
                             <ul className='list-group' style={{ listStyleType: 'none' }}>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> EDUCATION</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> PROGRAMMING</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> LEARNING</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> ADVENTURE</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> DESTINATION</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> EXPLORE</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> INSPIRE</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> LIFESTYLE</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> MOMENTS</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> PLANET</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> TOURISM</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> TOURISM TOUR</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> TOURISM GUIDES</li>
-                                <li className='mb-2'><i class="fas fa-square-full txt"></i> TRAVALLING</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> EDUCATION</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> PROGRAMMING</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> LEARNING</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> ADVENTURE</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> DESTINATION</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> EXPLORE</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> INSPIRE</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> LIFESTYLE</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> MOMENTS</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> PLANET</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> TOURISM</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> TOURISM TOUR</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> TOURISM GUIDES</li>
+                                <li className='mb-2'><i className="fas fa-square-full txt"></i> TRAVALLING</li>
                             </ul>
                         </div>
                     </Col>

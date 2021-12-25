@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const auth = getAuth();
+    const [admin, setAdmin] = useState(false)
 
     //create user of the help registation form
     const registerUser = (email, password, name) => {
@@ -26,6 +27,10 @@ const useFirebase = () => {
                     .catch(err => {
                         setError(err.message)
                     })
+
+                //send data to mongoDb
+                saveToDb(email, name)
+
                 //confirm message for user
                 swal({
                     title: "Wow!",
@@ -85,9 +90,32 @@ const useFirebase = () => {
     }, [])
 
 
+    //check admin role
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
+
+    //save to db
+    const saveToDb = (email, displayName) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(user)
+        }).then(() => {
+
+        })
+    }
+
     return {
         user,
         error,
+        admin,
         logOut,
         loginUser,
         registerUser,

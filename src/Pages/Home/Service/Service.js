@@ -13,10 +13,10 @@ const Service = () => {
                     <Col sm={12} md={4}>
                         <div className='card-filp'>
                             <div className='front'>
-                                <h2><i class="fas fa-crop-alt icon"></i></h2>
+                                <h2><i className="fas fa-crop-alt icon"></i></h2>
                                 <h5>Web Design</h5>
                                 <p>I'm developer focused on crafting user‑friendly experiences.</p>
-                                <h5 className='mt-3'><i class="fas fa-recycle icon"></i></h5>
+                                <h5 className='mt-3'><i className="fas fa-recycle icon"></i></h5>
                             </div>
                             <div className='back'>
                                 <h3>back</h3>
@@ -26,10 +26,10 @@ const Service = () => {
                     <Col sm={12} md={4}>
                         <div className='card-filp'>
                             <div className='front' style={{ backgroundColor: '#e21657', color: '#fff' }}>
-                                <h2><i class="fas fa-mobile-alt"></i></h2>
+                                <h2><i className="fas fa-mobile-alt"></i></h2>
                                 <h5>Responsive</h5>
                                 <p>I'm developer focused on crafting user‑friendly experiences.</p>
-                                <h5 className='mt-3'><i class="fas fa-recycle"></i></h5>
+                                <h5 className='mt-3'><i className="fas fa-recycle"></i></h5>
                             </div>
                             <div className='back'>
                                 <h3>back</h3>
@@ -39,10 +39,10 @@ const Service = () => {
                     <Col sm={12} md={4}>
                         <div className='card-filp'>
                             <div className='front'>
-                                <h2><i class="fas fa-laptop-code icon"></i></h2>
+                                <h2><i className="fas fa-laptop-code icon"></i></h2>
                                 <h5>Web Development</h5>
                                 <p>I'm developer focused on crafting user‑friendly experiences.</p>
-                                <h5 className='mt-3'><i class="fas fa-recycle icon"></i></h5>
+                                <h5 className='mt-3'><i className="fas fa-recycle icon"></i></h5>
                             </div>
                             <div className='back'>
                                 <h3>back</h3>

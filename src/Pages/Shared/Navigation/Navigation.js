@@ -1,10 +1,11 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../../Hooks/useFirebase';
+import useAuth from '../../../Hooks/useAuth';
 
 const Navigation = () => {
-    const { user, logOut } = useFirebase();
+    const { user, logOut, admin } = useAuth();
+
     return (
         <Navbar className='px-2 header' collapseOnSelect expand="lg" sticky='top' variant="dark">
             <Navbar.Brand as={Link} to="/home">𝐅 𝐉 𝐓</Navbar.Brand>
@@ -14,12 +15,14 @@ const Navigation = () => {
                     <Nav.Link className='custom-btn' as={Link} to="/home">Home</Nav.Link>
                     <Nav.Link className='custom-btn' as={Link} to="/blogs">Blogs</Nav.Link>
                     <Nav.Link className='custom-btn' as={Link} to="/contact">Contact</Nav.Link>
-                    <Nav.Link className='custom-btn' as={Link} to="/adminpage">Admin Page</Nav.Link>
+                    {
+                        admin && <Nav.Link className='custom-btn' as={Link} to="/adminpage">Admin Page</Nav.Link>
+                    }
                     {
                         user.email && <h6 className='me-2 text-success'>{user.displayName}</h6>
                     }
                     {
-                        user.email ? <button className='custom-btn' onClick={logOut}><i class="fas fa-sign-in-alt"></i> Logout</button> : <Nav.Link className='custom-btn' as={Link} to="/login">Login</Nav.Link>
+                        user.email ? <button className='custom-btn' onClick={logOut}><i className="fas fa-sign-in-alt"></i> Logout</button> : <Nav.Link className='custom-btn' as={Link} to="/login">Login</Nav.Link>
                     }
                 </Nav>
             </Navbar.Collapse>
