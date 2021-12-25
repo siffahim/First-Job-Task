@@ -9,7 +9,7 @@ const Service = () => {
                 <h3 className='text-black text fw-bold'>Whate I Do</h3>
             </div>
             <Container>
-                <Row className='g-4 p-2'>
+                <Row className='gy-4 gx-xs-0 gx-3 p-2'>
                     <Col sm={12} md={4}>
                         <div className='card-filp'>
                             <div className='front'>

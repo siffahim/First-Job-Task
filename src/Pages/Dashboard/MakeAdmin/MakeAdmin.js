@@ -8,7 +8,7 @@ const MakeAdmin = () => {
     const handleAdmim = e => {
         e.preventDefault();
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://whispering-sands-36256.herokuapp.com/users', {
             method: 'PUT',
             headers: {
                 "content-type": "application/json"

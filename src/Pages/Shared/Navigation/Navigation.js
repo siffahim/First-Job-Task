@@ -19,10 +19,13 @@ const Navigation = () => {
                         admin && <Nav.Link className='custom-btn' as={Link} to="/adminpage">Admin Page</Nav.Link>
                     }
                     {
-                        user.email && <h6 className='me-2 text-success'>{user.displayName}</h6>
+                        user.email && <Nav.Link href="#a" className='text-white fw-bold'>{user.displayName}</Nav.Link>
                     }
                     {
-                        user.email ? <button className='custom-btn' onClick={logOut}><i className="fas fa-sign-in-alt"></i> Logout</button> : <Nav.Link className='custom-btn' as={Link} to="/login">Login</Nav.Link>
+                        user.email && <img style={{ width: '50px', height: '50px', marginRight: '10px', borderRadius: '50%' }} src={user.photoURL} alt="" />
+                    }
+                    {
+                        user.email ? <button className='custom-btn' style={{ backgroundColor: '#e0dbd244' }} onClick={logOut}><i className="fas fa-sign-in-alt"></i> Logout</button> : <Nav.Link className='custom-btn' as={Link} to="/login">Login</Nav.Link>
                     }
                 </Nav>
             </Navbar.Collapse>

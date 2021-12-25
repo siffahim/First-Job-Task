@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import swal from 'sweetalert';
 import initializeAuthentication from '../Pages/Login/Firebase/firebase.init';
@@ -77,6 +77,37 @@ const useFirebase = () => {
                 setIsLoading(false)
             })
     }
+
+    //google login 
+    const googleLogin = (navigate, location) => {
+        setIsLoading(true)
+        const googleProvider = new GoogleAuthProvider();
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                setUser(result.user)
+
+                setError('')
+                swal({
+                    title: "Good Job!",
+                    text: "Successfully Login",
+                    icon: "success",
+                    button: "Ok",
+                })
+                //send data to mongoDb
+                saveToDb(result.user.email, result.user.displayName)
+
+
+                //rediect send right place
+                const uri = location?.state?.from || '/home';
+                navigate(uri)
+
+            })
+            .catch(err => setError(err.message))
+            .finally(() => {
+                setIsLoading(false)
+            })
+    }
+
     //user log out
     const logOut = () => {
         signOut(auth)
@@ -109,7 +140,7 @@ const useFirebase = () => {
 
     //check admin role
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://whispering-sands-36256.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -118,7 +149,7 @@ const useFirebase = () => {
     //save to db
     const saveToDb = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://whispering-sands-36256.herokuapp.com/users', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -134,6 +165,7 @@ const useFirebase = () => {
         error,
         isLoading,
         admin,
+        googleLogin,
         logOut,
         loginUser,
         registerUser,

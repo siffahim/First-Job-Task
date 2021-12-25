@@ -2,7 +2,7 @@ $bg-color:linear-gradient(145deg, #1e2024, #23272b);
 $bg-color2:rgba(255,255,255,0.1);
 $shadow:0px 0px 5px #1c1e22, -0px -0px 5px #262a2e;
 $color-white:#f6f6f6;
-$bg-hover:rgba(224, 219, 210, 0.267);
+$bg-hover:#e0dbd244;
 $uppercase:uppercase;
 $transition:0.4s;
 $relative:relative;
@@ -11,19 +11,19 @@ $bold:bold;
 $text-center:center;
 
 .header{
-    height: 70px;
     background-color:#da2f40;
 }
 .custom-btn{
     text-decoration: none;
     border-radius: 6px;
-    padding: 12px 15px;
-    font-weight:$bold;
+    padding: 12px 15px !important;
+    display: inline-block;
     font-size:15px;
     color: $color-white;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: none;
     transition:$transition;
     margin-right: 10px;
+    margin-top: 5px;
     background: transparent;
 }
 .custom-btn:hover{
@@ -83,7 +83,6 @@ $text-center:center;
     padding-bottom: 5%;
     background: #fff;
     color: #f6f6f6;
-    padding:40px;
 }
 
 .card-filp{
@@ -180,9 +179,6 @@ $text-center:center;
     padding-top: 20px;
 }
 
-.form-container{
-    padding:40px 60px;
-}
 .txt{
     font-size: 7px;
     color: #da2f40;
@@ -234,4 +230,13 @@ $text-center:center;
     border-radius: 6px;
     padding: 40px;
     background:$bg-color;
+}
+.icon-content{
+
+    border: 1px solid #bdb9b9;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 30px;
+    background:#fff;
 }
