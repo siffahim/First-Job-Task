@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
-import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 
 const UpdateBlog = () => {
@@ -10,12 +9,15 @@ const UpdateBlog = () => {
     const { updateId } = useParams();
     const [image, setImage] = useState(null);
     const navigate = useNavigate();
+    const [isLoaing, setIsLoading] = useState(true);
 
     useEffect(() => {
+        setIsLoading(true)
         fetch(`https://whispering-sands-36256.herokuapp.com/blogs/${updateId}`)
             .then(res => res.json())
             .then(data => {
                 setBlog(data)
+                setIsLoading(false)
             })
     }, [updateId])
 
@@ -52,7 +54,6 @@ const UpdateBlog = () => {
         formData.append('country', blog.country)
         formData.append('description', blog.description)
 
-        console.log('client side', formData)
         fetch(`https://whispering-sands-36256.herokuapp.com/blogs/${updateId}`, {
             method: 'PUT',
             body: formData
@@ -77,22 +78,24 @@ const UpdateBlog = () => {
         <>
             <Navigation />
             <Container>
-                <div className='form-container mb-4'>
-                    <button className='btn-custom mt-3 bg-danger' onClick={handleBlog}><i className="fas fa-undo"></i> Blog</button>
-                    <form onSubmit={handleUpdate}>
-                        <input type="text" onChange={handleChangeTitle} className='col-12 col-md-6 mb-3 d-block mx-auto' value={blog.title || ''} />
+                {
+                    isLoaing ? <div className='text-center mt-5'><Spinner animation="border" variant="danger" /></div> : <div className='form-container mb-4'>
+                        <button className='btn-custom mt-3 bg-danger' onClick={handleBlog}><i className="fas fa-undo"></i> Blog</button>
+                        <form onSubmit={handleUpdate}>
+                            <input type="text" onChange={handleChangeTitle} className='col-12 col-md-6 mb-3 d-block mx-auto' value={blog.title || ''} />
 
-                        <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block  mx-auto' required />
+                            <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block  mx-auto' required />
 
-                        <input type="text" onChange={handleChangeCountry} className='col-12 col-md-6 mb-3 d-block  mx-auto' value={blog.country || ''} />
+                            <input type="text" onChange={handleChangeCountry} className='col-12 col-md-6 mb-3 d-block  mx-auto' value={blog.country || ''} />
 
-                        <textarea onChange={handleChangeDescripttion} className='border col-12 col-md-6 d-flex mx-auto' value={blog.description || ''} cols="100" rows="8"></textarea>
+                            <textarea onChange={handleChangeDescripttion} className='border col-12 col-md-6 d-flex mx-auto' value={blog.description || ''} cols="100" rows="8"></textarea>
 
-                        <button type="submit" className='col-12 col-md-6 mb-3 d-block mx-auto btn-custom bg-danger' >Update Blog</button>
-                    </form>
-                </div>
+                            <button type="submit" className='col-12 col-md-6 mb-3 d-block mx-auto btn-custom bg-danger' >Update Blog</button>
+                        </form>
+                    </div>
+                }
             </Container>
-            <Footer />
+
         </>
     );
 };
