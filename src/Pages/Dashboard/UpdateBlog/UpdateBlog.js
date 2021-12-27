@@ -48,6 +48,16 @@ const UpdateBlog = () => {
     const handleUpdate = e => {
         e.preventDefault();
 
+        if (!image) {
+            swal({
+                title: "Warning!",
+                text: "Please give update image",
+                icon: "warning",
+                button: "Ok",
+            })
+            return;
+        }
+
         const formData = new FormData();
         formData.append('title', blog.title)
         formData.append('img', image)
@@ -84,7 +94,7 @@ const UpdateBlog = () => {
                         <form onSubmit={handleUpdate}>
                             <input type="text" onChange={handleChangeTitle} className='col-12 col-md-6 mb-3 d-block mx-auto' value={blog.title || ''} />
 
-                            <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block  mx-auto' required />
+                            <input type="file" onChange={(e) => setImage(e.target.files[0])} className='col-12 col-md-6 mb-3 d-block  mx-auto' />
 
                             <input type="text" onChange={handleChangeCountry} className='col-12 col-md-6 mb-3 d-block  mx-auto' value={blog.country || ''} />
 
